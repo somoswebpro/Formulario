@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Hands on Epoxy Handyman LLC - Expert epoxy flooring, pool decks, polymer flakes and commercial floors. Get a free premium estimate.">
+    <meta name="author" content="Hands on Epoxy Handyman LLC">
+    <title>Hands on Epoxy | Free Premium Estimate</title>
+    
+    <!-- Tailwind + Google Fonts + Font Awesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        epoxy: { 50: '#fef2f2', 100: '#ffe1e1', 200: '#ffc7c7', 300: '#ffa0a0', 400: '#ff6b6b', 500: '#f23b3b', 600: '#dc2626', 700: '#b91c1c', 800: '#991b1b', 900: '#7f1d1d' },
+                        stone: { 850: '#1c1917', 900: '#1c1917', 950: '#0c0a09' },
+                        warm: { 50: '#fff8f2', 100: '#fef3e8', 200: '#fae6d4', 300: '#f5d4b8', 400: '#e7b58f', 500: '#d49466', 600: '#b87344', 700: '#9e5e36', 800: '#7e4a2c', 900: '#5e3620' },
+                    },
+                    fontFamily: { display: ['Playfair Display', 'serif'], body: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: linear-gradient(145deg, #fefaf5 0%, #fff5eb 100%);
+            font-family: 'Inter', sans-serif;
+            color: #2c241e;
+            overflow-x: hidden;
+        }
+        
+        /* Glassmorphism premium */
+        .glass-premium {
+            background: rgba(255, 250, 240, 0.88);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(185, 28, 28, 0.15);
+            border-radius: 2rem;
+            box-shadow: 0 25px 45px -12px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.6);
+        }
+        
+        .btn-primary-premium {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+            border-radius: 3rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+        }
+        .btn-primary-premium:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(220, 38, 38, 0.4);
+            background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+        }
+        
+        .input-premium {
+            transition: all 0.2s ease;
+            border: 1.5px solid #e2e8f0;
+            background: white;
+        }
+        .input-premium:focus {
+            border-color: #dc2626;
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+            outline: none;
+        }
+        
+        .upload-btn {
+            transition: all 0.2s;
+            background: #f3f4f6;
+            border: 1.5px solid #e5e7eb;
+        }
+        .upload-btn:hover {
+            background: #e5e7eb;
+            border-color: #dc2626;
+            transform: scale(0.98);
+        }
+        
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.8s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease, box-shadow 0.3s;
+        }
+        .hover-scale:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15);
+        }
+        
+        .checkbox-custom {
+            accent-color: #dc2626;
+            width: 1.1rem;
+            height: 1.1rem;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #ede4db; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: #dc2626; border-radius: 10px; }
+        
+        /* Ajuste extra para evitar desbordes en móvil */
+        @media (max-width: 640px) {
+            .glass-premium, .bg-epoxy-50 {
+                border-radius: 1.5rem;
+            }
+            .btn-primary-premium {
+                font-size: 1rem;
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="font-body">
+
+    <!-- SECCIÓN PRINCIPAL CON FORMULARIO PREMIUM Y RECAPTCHA V3 (totalmente responsive) -->
+    <section class="relative overflow-hidden py-12 md:py-20 px-4 sm:px-6">
+        <!-- Burbujas decorativas (sin causar scroll horizontal) -->
+        <div class="absolute inset-0 -z-10 overflow-hidden">
+            <div class="absolute top-20 left-10 w-64 h-64 bg-epoxy-200 rounded-full mix-blend-multiply filter blur-3xl animate-pulse opacity-50"></div>
+            <div class="absolute bottom-20 right-10 w-72 h-72 bg-warm-300 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000 opacity-50"></div>
+        </div>
+
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-10 md:mb-12 fade-up">
+                <span class="inline-block px-4 py-1 rounded-full bg-epoxy-100 text-epoxy-800 text-sm font-semibold tracking-wide mb-3">✨ Free Consultation</span>
+                <h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-stone-800 leading-tight">Get a <span class="text-epoxy-700">Premium</span> Estimate</h1>
+                <div class="w-24 h-1 bg-epoxy-600 mx-auto mt-4 md:mt-5 rounded-full"></div>
+                <p class="text-stone-600 max-w-2xl mx-auto mt-4 md:mt-5 text-base md:text-lg px-2">Tell us about your project and we’ll reply with a detailed quote within 24h.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-5 gap-6 md:gap-8 items-start">
+                <!-- Formulario (3/5 en desktop) -->
+                <div class="lg:col-span-3 fade-up">
+                    <div class="glass-premium p-5 sm:p-6 md:p-8 hover-scale">
+                        <form id="estimateForm" action="enviar_cotizacion.php" method="POST" enctype="multipart/form-data">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
+                                <div><label class="block text-stone-700 font-medium mb-1 text-sm">Full Name <span class="text-epoxy-600">*</span></label><input type="text" name="fullname" required class="input-premium w-full px-4 py-3 rounded-xl text-base"></div>
+                                <div><label class="block text-stone-700 font-medium mb-1 text-sm">Email <span class="text-epoxy-600">*</span></label><input type="email" name="email" required class="input-premium w-full px-4 py-3 rounded-xl text-base"></div>
+                                <div><label class="block text-stone-700 font-medium mb-1 text-sm">Phone <span class="text-epoxy-600">*</span></label><input type="tel" name="phone" required class="input-premium w-full px-4 py-3 rounded-xl text-base"></div>
+                                <div><label class="block text-stone-700 font-medium mb-1 text-sm">Zip Code <span class="text-epoxy-600">*</span></label><input type="text" name="zipcode" required class="input-premium w-full px-4 py-3 rounded-xl text-base"></div>
+                                <div class="sm:col-span-2"><label class="block text-stone-700 font-medium mb-1 text-sm">City <span class="text-epoxy-600">*</span></label><input type="text" name="city" required class="input-premium w-full px-4 py-3 rounded-xl text-base"></div>
+                            </div>
+
+                            <div class="mt-5 md:mt-6">
+                                <h3 class="font-semibold text-stone-800 mb-3 text-base md:text-lg">🛠️ Services needed</h3>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4">
+                                    <label class="flex items-center"><input type="checkbox" name="services[]" value="metallic-epoxy" class="checkbox-custom"> <span class="text-sm md:text-base">Metallic Epoxy Floor</span></label>
+                                    <label class="flex items-center"><input type="checkbox" name="services[]" value="polymer-flakes" class="checkbox-custom"> <span class="text-sm md:text-base">Polymer Flakes Floors</span></label>
+                                    <label class="flex items-center"><input type="checkbox" name="services[]" value="pool-deck" class="checkbox-custom"> <span class="text-sm md:text-base">Pool Decks</span></label>
+                                    <label class="flex items-center"><input type="checkbox" name="services[]" value="commercial floor" class="checkbox-custom"> <span class="text-sm md:text-base">Commercial Floor</span></label>
+                                    <label class="flex items-center"><input type="checkbox" name="services[]" value="additional service" class="checkbox-custom"> <span class="text-sm md:text-base">Additional Services</span></label>
+                                </div>
+                            </div>
+
+                            <div class="mt-5 md:mt-6">
+                                <label class="block text-stone-700 font-medium mb-1 text-sm">Describe your project</label>
+                                <textarea name="message" rows="3" placeholder="Tell us about the area, desired finish, or any special request..." class="input-premium w-full px-4 py-3 rounded-xl text-base"></textarea>
+                            </div>
+
+                            <div class="mt-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                                <div class="flex items-center gap-3 flex-wrap">
+                                    <span class="text-stone-700 text-sm font-medium"><i class="fa-regular fa-file-lines mr-1"></i> Attach file (optional)</span>
+                                    <input type="file" name="file" id="fileInput" hidden>
+                                    <label for="fileInput" class="upload-btn cursor-pointer px-4 py-2 rounded-xl text-sm font-medium text-stone-700 transition flex gap-2 items-center whitespace-nowrap">
+                                        <i class="fa-solid fa-cloud-arrow-up"></i> Choose file
+                                    </label>
+                                    <span id="fileName" class="text-xs text-stone-500 truncate max-w-[150px] sm:max-w-[200px]"></span>
+                                </div>
+                            </div>
+
+                            <!-- Token oculto para reCAPTCHA v3 -->
+                            <input type="hidden" name="recaptcha_token" id="recaptchaToken">
+
+                            <div class="mt-6 md:mt-8 text-center">
+                                <button type="submit" 
+                                        class="g-recaptcha btn-primary-premium w-full sm:w-auto px-6 md:px-8 py-3 text-base md:text-lg shadow-lg transition"
+                                        data-sitekey="TU_SITE_KEY_V3_AQUI"
+                                        data-callback="onRecaptchaSuccess"
+                                        data-action="submit">
+                                    Send free estimate <i class="fa-regular fa-paper-plane ml-2"></i>
+                                </button>
+                                <p class="text-xs text-stone-400 mt-3">This site is protected by reCAPTCHA v3.</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Columna lateral informativa (2/5 en desktop) -->
+                <div class="lg:col-span-2 space-y-5 md:space-y-6 fade-up">
+                    <div class="glass-premium p-5 text-center">
+                        <div class="w-16 h-16 md:w-20 md:h-20 bg-epoxy-50 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4"><i class="fa-regular fa-clock fa-2x text-epoxy-700"></i></div>
+                        <h3 class="font-display text-xl md:text-2xl font-bold text-stone-800">Fast response</h3>
+                        <p class="text-stone-600 mt-2 text-sm md:text-base">We answer all quote requests within <span class="font-bold text-epoxy-700">24 hours</span>, often same day.</p>
+                        <hr class="my-3 md:my-4 border-warm-200">
+                        <div class="text-left text-sm md:text-base"><p class="flex justify-between py-1"><span class="font-medium">Mon - Fri:</span> <span>8:00am – 5:30pm</span></p><p class="flex justify-between py-1"><span class="font-medium">Saturday:</span> <span>Closed</span></p><p class="flex justify-between py-1"><span class="font-medium">Sunday:</span> <span>8:00am – 3:00pm</span></p></div>
+                    </div>
+                    <div class="glass-premium p-5 text-center"><i class="fa-solid fa-phone-volume text-epoxy-600 text-2xl md:text-3xl mb-2"></i><h3 class="font-display text-lg md:text-xl font-bold">Call us now</h3><a href="tel:+13343146664" class="text-xl md:text-2xl font-bold text-epoxy-800 hover:text-epoxy-600 transition block my-2">+1 (334) 314-6664</a><p class="text-stone-500 text-xs md:text-sm">Free consultation over the phone</p></div>
+                    <div class="bg-epoxy-50 rounded-2xl p-4 md:p-5 border border-epoxy-100 flex items-center gap-3 md:gap-4"><i class="fa-regular fa-circle-check text-epoxy-700 text-2xl md:text-3xl"></i><p class="text-stone-700 text-sm md:text-base">✓ 100% free estimate  <br> ✓ No obligation  <br> ✓ Licensed & insured</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-stone-900 text-white py-8 md:py-10 px-4 sm:px-5 mt-8 md:mt-12">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 md:gap-8 text-center md:text-left">
+            <div><img src="/img/logo.png" alt="Hands on Epoxy" class="w-28 md:w-32 mx-auto md:mx-0 mb-2" onerror="this.src='https://placehold.co/120x60?text=Epoxy+Logo'"><p class="text-xs md:text-sm text-stone-400">Premium epoxy flooring & handyman services.</p></div>
+            <div><h3 class="font-display text-lg md:text-xl mb-2 md:mb-3">Quick links</h3><ul class="space-y-1 text-sm md:text-base"><li><a href="/index.html" class="hover:text-epoxy-400 text-stone-300">Home</a></li><li><a href="/html/gallery.html" class="hover:text-epoxy-400 text-stone-300">Gallery</a></li><li><a href="#" class="hover:text-epoxy-400 text-stone-300">Free Estimate</a></li></ul></div>
+            <div><h3 class="font-display text-lg md:text-xl mb-2 md:mb-3">Follow us</h3><div class="flex justify-center md:justify-start gap-4 md:gap-5 text-xl md:text-2xl"><a href="#" class="hover:text-epoxy-400 transition"><i class="fab fa-facebook"></i></a><a href="#" class="hover:text-epoxy-400 transition"><i class="fab fa-instagram"></i></a><a href="#" class="hover:text-epoxy-400 transition"><i class="fab fa-tiktok"></i></a></div></div>
+        </div>
+        <hr class="border-stone-700 my-5 md:my-6">
+        <p class="text-center text-stone-400 text-xs md:text-sm">© 2026 Hands on Epoxy Handyman LLC. All rights reserved. | Powered by <a href="#" class="text-epoxy-400 hover:underline">DesarrolladoresWebMexa</a></p>
+    </footer>
+
+    <!-- Scripts: reCAPTCHA v3 + UI -->
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+        // Callback que se ejecuta cuando reCAPTCHA v3 devuelve el token
+        window.onRecaptchaSuccess = function(token) {
+            document.getElementById('recaptchaToken').value = token;
+            // El formulario se envía automáticamente después gracias al atributo data-callback
+        };
+
+        // Mostrar nombre del archivo seleccionado
+        const fileInput = document.getElementById('fileInput');
+        const fileNameSpan = document.getElementById('fileName');
+        if(fileInput && fileNameSpan) {
+            fileInput.addEventListener('change', function() {
+                fileNameSpan.textContent = this.files[0] ? this.files[0].name : '';
+            });
+        }
+
+        // Intersection Observer para fade-up
+        const fades = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        fades.forEach(el => observer.observe(el));
+        window.addEventListener('load', () => {
+            fades.forEach(el => {
+                if(el.getBoundingClientRect().top < window.innerHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
